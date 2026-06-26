@@ -1,0 +1,37 @@
+{
+  "collections": [
+    {
+      "name": "users",
+      "documentId": "uid",
+      "fields": [
+        { "name": "uid", "type": "string" },
+        { "name": "email", "type": "string" },
+        { "name": "displayName", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    },
+    {
+      "name": "posts",
+      "documentId": "auto",
+      "fields": [
+        { "name": "title", "type": "string" },
+        { "name": "content", "type": "string" },
+        { "name": "authorId", "type": "string" },
+        { "name": "authorName", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" },
+        { "name": "updatedAt", "type": "timestamp" }
+      ]
+    },
+    {
+      "name": "comments",
+      "documentId": "auto",
+      "fields": [
+        { "name": "postId", "type": "string" },
+        { "name": "content", "type": "string" },
+        { "name": "authorId", "type": "string" },
+        { "name": "authorName", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    }
+  ]
+}

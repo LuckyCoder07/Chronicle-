@@ -1,0 +1,6 @@
+{
+  "name": "3DBlog Platform",
+  "description": "A full-stack blog platform featuring 3D animations, user authentication, post creation, and comments, powered by Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

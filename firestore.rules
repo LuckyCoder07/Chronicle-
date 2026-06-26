@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAuthor(authorId) {
+      return request.auth.uid == authorId;
+    }
+
+    function getUserData() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid)) ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data : null;
+    }
+
+    function getUserRole() {
+      let userData = getUserData();
+      return userData != null && 'role' in userData ? userData.role : 'author';
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+
+    function isEditor() {
+      return isAuthenticated() && (getUserRole() == 'admin' || getUserRole() == 'editor');
+    }
+
+    function isAuthorRole() {
+      return isAuthenticated() && (getUserRole() == 'admin' || getUserRole() == 'editor' || getUserRole() == 'author');
+    }
+
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
