@@ -8,7 +8,7 @@ export function About() {
       name: "Lakshit Singh",
       role: "Full Stack Developer",
       bio: "Pursuing Computer Science Engineering at PCCOE Pune with strong interests in cutting-edge tech and digital productivity workflows. Dedicated to engineering robust web apps and silent, high-craft editorial writing systems.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      image: "/assets/Developer_photo.png",
     }
   ];
 
@@ -99,7 +99,7 @@ export function About() {
                 <LazyImage
                   src={t.image}
                   alt={t.name}
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
                   wrapperClassName="w-full h-full"
                 />
               </div>
